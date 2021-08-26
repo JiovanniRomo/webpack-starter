@@ -1,9 +1,9 @@
-html, body {
-    margin: 0;
-    background-color: #ddd;
+html {
+    font-size: 62.5%;
 }
 
-img {
-    width: 300px;
-
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

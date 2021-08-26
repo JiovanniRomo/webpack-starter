@@ -5,8 +5,11 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
     mode: 'development',
 
+    entry: './src/index.ts',
+
     output: {
-        clean: true,
+        path: "/",
+        filename: "bundle.js"
     },
 
     module: {
@@ -18,6 +21,13 @@ module.exports = {
                     sources: false,
 
                 },
+            },
+            {
+                test: /\.ts?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "ts-loader"
+                }
             },
             {
                 test: /\.css$/i,
@@ -35,6 +45,14 @@ module.exports = {
         ]
 
     },
+    
+    resolve: {
+        extensions: [".ts", ".js"],
+    },
+    
+    
+    devtool: "source-map",
+    
     plugins: [
         new HtmlWebPack({
             title: 'Mi Webpack App',
