@@ -8,7 +8,7 @@ module.exports = {
     entry: './src/index.ts',
 
     output: {
-        path: "/",
+        // path: "/",
         filename: "bundle.js"
     },
 
@@ -28,6 +28,14 @@ module.exports = {
                 use: {
                     loader: "ts-loader"
                 }
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    'css-loader',
+                    'sass-loader'
+                ]
             },
             {
                 test: /\.css$/i,
